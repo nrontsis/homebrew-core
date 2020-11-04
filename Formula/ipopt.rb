@@ -57,8 +57,8 @@ class Ipopt < Formula
       "--enable-shared",
       "--prefix=#{prefix}",
       "--with-blas=-L#{Formula["openblas"].opt_lib} -lopenblas",
-      "--with-mumps-incdir=#{buildpath}/mumps_include",
-      "--with-mumps-lib=-L#{lib} -ldmumps -lmpiseq -lmumps_common -lopenblas -lpord",
+      "--with-mumps-cflags=-I#{buildpath}/mumps_include",
+      "--with-mumps-lflags=-L#{lib} -ldmumps -lmpiseq -lmumps_common -lopenblas -lpord",
     ]
 
     system "./configure", *args
