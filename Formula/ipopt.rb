@@ -18,8 +18,8 @@ class Ipopt < Formula
   depends_on "openjdk" => :build
   depends_on "pkg-config" => [:build, :test]
   depends_on "ampl-mp"
+  depends_on "coin-or-tools/coinor/mumps-seq"
   depends_on "gcc" # for gfortran
-  depends_on "mumps-seq"
   depends_on "openblas"
 
   resource "test" do
