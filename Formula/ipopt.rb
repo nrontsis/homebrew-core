@@ -19,8 +19,8 @@ class Ipopt < Formula
   depends_on "pkg-config" => [:build, :test]
   depends_on "ampl-mp"
   depends_on "gcc" # for gfortran
-  depends_on "openblas"
   depends_on "mumps-seq"
+  depends_on "openblas"
 
   resource "test" do
     url "https://github.com/coin-or/Ipopt/archive/releases/3.14.5.tar.gz"
