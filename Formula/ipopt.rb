@@ -32,6 +32,7 @@ class Ipopt < Formula
     ENV.delete("MPICXX")
     ENV.delete("MPIFC")
 
+    mumps_formula = Formula["coin-or-tools/coinor/mumps-seq"]
     args = [
       "--disable-debug",
       "--disable-dependency-tracking",
@@ -39,8 +40,8 @@ class Ipopt < Formula
       "--enable-shared",
       "--prefix=#{prefix}",
       "--with-blas=-L#{Formula["openblas"].opt_lib} -lopenblas",
-      "--with-mumps-cflags=-I#{Formula["coin-or-tools/coinor/mumps-seq"].opt_libexec}/include",
-      "--with-mumps-lflags=-L#{Formula["coin-or-tools/coinor/mumps-seq"].opt_lib} -ldmumps -lmpiseq -lmumps_common -lopenblas -lpord",
+      "--with-mumps-cflags=-I#{mumps_formula.opt_libexec}/include",
+      "--with-mumps-lflags=-L#{mumps_formula.opt_lib} -ldmumps -lmpiseq -lmumps_common -lopenblas -lpord",
       "--with-asl-cflags=-I#{Formula["ampl-mp"].opt_include}/asl",
       "--with-asl-lflags=-L#{Formula["ampl-mp"].opt_lib} -lasl",
     ]
